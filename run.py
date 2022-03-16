@@ -56,4 +56,14 @@ def get_survey_data():
     return survey_data
 
 
-get_survey_data()
+def update_worksheet(data, worksheet):
+    """
+    Updates results worksheet with collected survey data, adds new row
+    """
+    print(f"Updating {worksheet} worksheet...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet has been updated successfully. \n")
+
+new_survey_data = get_survey_data()
+update_worksheet(new_survey_data, "results")
